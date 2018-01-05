@@ -30,8 +30,8 @@ RelayControl       (Created by V-Modder)
 Usage:	relaycontol OPTION...
 
 Options:
-	-p [Pin]:[State]	Using pin mode, where each pin and state is set in the next argument
-	-s 0xH			Using single mode, where all pins are set at once by the given hex-mask
++ p [Pin]:[State]	Using pin mode, where each pin and state is set in the next argument
++ s 0xH			Using single mode, where all pins are set at once by the given hex-mask
 
 
 If -s parameter is set no other parameters are excepted
