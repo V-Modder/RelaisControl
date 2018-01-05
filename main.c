@@ -41,10 +41,6 @@ int main(int argc, char **argv)
 	
 	char inputParam = initParameter(argv, argc);
 
-	if(inputParam == 0) {
-		return 0;
-	}	
-	
 	for(i = 0; i < MAX_DEVICES; i++) {
 		pcBufLD[i] = cBufLD[i];
 	}
