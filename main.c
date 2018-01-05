@@ -14,7 +14,7 @@
 #include <limits.h>
 #include <errno.h>
 #include <unistd.h>
-#include "../ftd2xx.h"
+#include "ftd2xx.h"
 #include <string.h>
 
 #define BUF_SIZE 0x1
