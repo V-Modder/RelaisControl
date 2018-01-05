@@ -38,14 +38,12 @@ int main(int argc, char **argv)
 	int	iNumDevs = 0;
 	int	i;
 	int	iDevicesOpen;	
-	int number = 0;
 	
 	char inputParam = initParameter(argv, argc);
+
 	if(inputParam == 0) {
 		return 0;
-	}
-	// printf("%d \n", inputParam);
-	
+	}	
 	
 	for(i = 0; i < MAX_DEVICES; i++) {
 		pcBufLD[i] = cBufLD[i];
@@ -88,7 +86,7 @@ int main(int argc, char **argv)
 		}
 		
 		/* Write */
-		cBufWrite[0] = number;
+		cBufWrite[0] = inputParam;
 		printf("Writing %d\n", cBufWrite[0] );
 		ftStatus = FT_Write(ftHandle[i], cBufWrite, BUF_SIZE, &dwBytesWritten);
 		if(ftStatus != FT_OK) {
@@ -135,7 +133,8 @@ char initParameter(char **argv, int argc) {
 				return 0;
 			}
 		}
-		else if(argc > i + 1 && contains(argv[i], "-p") && !contains(argv[i+1], "-")) {
+		else if(contains(argv[i], "-p")) {
+			if(argc > i + 1 && !contains(argv[i+1], "-")) {
 				char* value [5];
 				split(argv[i+1], ":", value);
 				int number  = 0;
@@ -150,11 +149,13 @@ char initParameter(char **argv, int argc) {
 				}
 				
 				if(iValue < 0 || iValue > 1) {
-					printHelp();
+					printf("The value of the outputs can only have two states (0 or 1)");
 					return 0;
 				}
 				number = (iValue << (iIndex - 1));
 				retValue |= number;
+				i++;
+			}
 		}
 		else {
 			printHelp();
@@ -222,11 +223,11 @@ int parseInt(char* str) {
 	}
     else if (errno == 0 && str && !*endptr) {
         printf (" number : %lu    valid  (and represents all characters read)\n", number);
-		number = -1;
+		//number = -1;
 	}
     else if (errno == 0 && str && *endptr != 0) {
         printf (" number : %lu    valid  (but additional characters remain)\n", number);
-		number = -1;
+		//number = -1;
 	}
 
 	return number;
