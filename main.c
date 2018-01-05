@@ -44,8 +44,7 @@ int main(int argc, char **argv)
 	if(inputParam == 0) {
 		return 0;
 	}
-	printf("%d \n", inputParam);
-	return 0;
+	// printf("%d \n", inputParam);
 	
 	
 	for(i = 0; i < MAX_DEVICES; i++) {
