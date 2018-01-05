@@ -16,7 +16,7 @@ Or with no driver installed you can set the chip in bitbanging mode, where all s
 in-/output (what we need for this).
 
 I used this the documents provided by FTDI:
-- [Software guid](http://www.ftdichip.com/Support/Documents/ProgramGuides/D2XX_Programmer%27s_Guide(FT_000071).pdf)
+- [Software guide](http://www.ftdichip.com/Support/Documents/ProgramGuides/D2XX_Programmer%27s_Guide(FT_000071).pdf)
 - [Driver & Examples](http://www.ftdichip.com/Drivers/D2XX/Linux/libftd2xx-x86_64-1.4.6.tgz)
 
 # Build
