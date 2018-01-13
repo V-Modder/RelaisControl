@@ -1,0 +1,2 @@
+gcc main.c -o relaycontrol libftd2xx.a -lpthread -lrt -Wall -Wextra
+chmod 755 relaycontrol

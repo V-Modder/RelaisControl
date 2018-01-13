@@ -9,7 +9,7 @@ endif
 CFLAGS=libftd2xx.a $(DEPENDENCIES) -Wall -Wextra
 APP = relaycontrol
 
-all: $(APP)
+all: $(APP);chmod 755 $(APP)
 
 $(APP): main.c	
 	$(CC) main.c -o $(APP) $(CFLAGS)
