@@ -6,7 +6,18 @@ ifeq ($(UNAME), Darwin)
 else
 	DEPENDENCIES := -lpthread -lrt
 endif
-CFLAGS=libftd2xx.a $(DEPENDENCIES) -Wall -Wextra
+
+LBITS := $(shell getconf LONG_BIT)
+ifeq ($(LBITS),64)
+   # do 64 bit stuff here, like set some CFLAGS
+   CFLAGS=ftdi/x64/libftd2xx.a $(DEPENDENCIES) -Wall -Wextra
+else
+   # do 32 bit stuff here
+   CFLAGS=ftdi/x86/libftd2xx.a $(DEPENDENCIES) -Wall -Wextra
+endif
+
+
+
 APP = relaycontrol
 
 all: $(APP);chmod 755 $(APP)
